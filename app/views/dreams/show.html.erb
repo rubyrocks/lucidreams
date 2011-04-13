@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Time:</b>
+  <%= @dream.time %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @dream.category %>
+</p>
+
+<p>
+  <b>Dream:</b>
+  <%= @dream.dream %>
+</p>
+
+
+<%= link_to 'Edit', edit_dream_path(@dream) %> |
+<%= link_to 'Back', dreams_path %>

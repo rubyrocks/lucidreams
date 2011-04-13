@@ -1,0 +1,27 @@
+Rails 3 App to post personal nightly dreams.
+Practice Rails 3 Way
+
+using web-app-theme, BCrypt
+
+To Do:
+	oauth
+	ajax
+	allow user to upload pic that best describes dream
+	jquery
+	pagination
+	cucumber testing
+
+===========================================================================
+rails generate scaffold Dream time:datetime category:string dream:text
+
+  rails g controller users new
+  rails g model user email:string password_hash:string password_salt:string
+  rake db:migrate
+  rails dbconsole
+  rails g controller sessions new
+
+
+---
+web app theme
+rails g web_app_theme:theme
+rails g web_app_theme:theme admin --theme="drastic-dark"

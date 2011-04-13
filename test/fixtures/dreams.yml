@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  time: 2011-04-06 22:35:45
+  category: MyString
+  dream: MyText
+
+two:
+  time: 2011-04-06 22:35:45
+  category: MyString
+  dream: MyText

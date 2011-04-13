@@ -1,0 +1,35 @@
+<h1>Listing dreams</h1>
+
+ <% if current_user %>
+ 
+
+<table border = 1>
+  <tr>
+    <th>Time</th>
+    <th>Category</th>
+    <th>Dream</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @dreams.each do |dream| %>
+  <tr>
+    <td><%= dream.time %></td>
+    <td><%= dream.category %></td>
+    <td><%= dream.dream %></td>
+    <td><%= link_to image_tag("show.gif"), dream %></td>
+    <td><%= link_to image_tag("edit.gif"), edit_dream_path(dream) %></td>
+    <td><%= link_to image_tag("delete.gif"), dream, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+   <%= link_to 'New Dream', new_dream_path %>
+<% else %>
+   No dreams for you until you login...
+<% end  %>
+
+<br />
+
+
