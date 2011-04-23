@@ -1,4 +1,7 @@
 class Dream < ActiveRecord::Base
+
+      belongs_to :user
+
       validates_presence_of :dream
       validates_length_of :dream, :maximum => 500
 
@@ -12,8 +15,8 @@ class Dream < ActiveRecord::Base
 	[ "Erotic", "erotic" ]
   ]
 
-      validates_inclusion_of :category, :in => 
-                DREAM_TYPES.map {|disp, value| value}
+  #    validates_inclusion_of :category, :in => 
+  #              DREAM_TYPES.map {|disp, value| value}
 
 
 end

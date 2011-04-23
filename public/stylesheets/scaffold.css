@@ -54,3 +54,51 @@ div.field, div.actions {
   font-size: 12px;
   list-style: square;
 }
+
+/* DREAMS LIST */
+#dreams_list {
+  margin: 0px;
+  padding: 0px;
+  width: 521px;
+}
+#dreams_list li {
+  list-style: none;
+  padding: 10px 0px;
+  margin: 0px;
+  background-color: #fff;
+  border-bottom: 1px dashed #D2DADA;
+}
+#dreams_list li.first {
+  border-top: 1px dashed #D2DADA;
+}
+#dreams_list li:hover {
+  background-color: #F7F7F7;
+}
+#dreams_list li img {
+  float: left;
+}
+#dreams_list li div.flit_message_container {
+  float: left;
+  margin-left: 10px;
+  width: 450px;
+}
+#dreams_list li div.flit_message_container h3 {
+  margin: 0px;
+  font-size: 16px;
+}
+#dreams_list li div.button_container {
+  width: 135px;
+  text-align: right;
+  float: right;
+}
+#dreams_list li div.flit_message_container a {
+  color: #2276bb;
+  text-decoration: none;
+  font-weight: bold;
+}
+#dreams_list li div.flit_message_container div.time_ago {
+  color: #9C9C9C;
+  font-size: 90%;
+  padding-top: 3px;
+}
+

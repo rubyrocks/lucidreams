@@ -120,7 +120,8 @@ body {
 #user-navigation {
   position: absolute;
   top: 0px;
-  right: 20px;  
+  right: 20px;
+  color: #FFF;  
 }
 
 #main-navigation {
