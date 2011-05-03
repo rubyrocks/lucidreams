@@ -4,7 +4,7 @@ class DreamsController < ApplicationController
   # GET /dreams
   # GET /dreams.xml
   def index
-    @dreams = Dream.all
+    @dreams = Dream.order("id DESC")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -41,19 +41,33 @@ class DreamsController < ApplicationController
 
   # POST /dreams
   # POST /dreams.xml
-  def create
-    @dream = Dream.new(params[:dream])
+  #def create
+  #  @dream = Dream.new(params[:dream])
 
-    respond_to do |format|
-      if @dream.save
-        format.html { redirect_to(@dream, :notice => 'Dream was successfully created.') }
-        format.xml  { render :xml => @dream, :status => :created, :location => @dream }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @dream.errors, :status => :unprocessable_entity }
-      end
-    end
+  #  respond_to do |format|
+  #    if @dream.save
+  #      format.html { redirect_to(@dream, :notice => 'Dream was successfully created.') }
+  #      format.xml  { render :xml => @dream, :status => :created, :location => @dream }
+  #    else
+  #      format.html { render :action => "new" }
+  #      format.xml  { render :xml => @dream.errors, :status => :unprocessable_entity }
+  #    end
+  #  end
+  #end
+
+  def create
+	@dream = Dream.new(params[:dream])
+
+        respond_to do |format|
+          if @dream.save
+             format.html { redirect_to(dreams_url) }
+             format.xml  { head :ok }
+	  else
+             format.html { redirect_to(dreams_url) }
+          end
+        end
   end
+
 
   # PUT /dreams/1
   # PUT /dreams/1.xml
@@ -70,6 +84,7 @@ class DreamsController < ApplicationController
       end
     end
   end
+
 
   # DELETE /dreams/1
   # DELETE /dreams/1.xml

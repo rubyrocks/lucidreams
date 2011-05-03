@@ -19,24 +19,26 @@
    
   </div>
       <div id="user-navigation">
-		<% if current_user %>
-		    Logged in as <%= current_user.email %>.
-		    
-		    <%= link_to "Log out", log_out_path %>
-		   <% else %>
-		    <%= link_to "Sign up", sign_up_path %> or
-		    <%= link_to "log in", log_in_path %>
-		<% end %>
         <ul class="wat-cf">
           <li><a href="#"><%= t("web-app-theme.profile", :default => "Profile") %></a></li>
           <li><a href="#"><%= t("web-app-theme.settings", :default => "Settings") %></a></li>
-          <li><a href="/logout" class="logout"><%= t("web-app-theme.logout", :default => "Logout") %></a></li>
         </ul>
       </div>
       <div id="main-navigation">
         <ul class="wat-cf"></ul>
       </div>
-    </div>    
+    </div>
+
+    <div id="userstatus">
+        <% if current_user %>
+              Logged in as <%= current_user.email %>.
+              <%= button_to("Log out", log_out_path, :method => :get) %>
+        <% else %>
+	      <%= button_to("Sign up", sign_up_path, :method => :get) %> | 
+	      <%= button_to("log in", log_in_path, :method => :get) %>
+	<% end %>
+    </div>
+ 
     <div id="wrapper" class="wat-cf">
       <div class="flash">
         <% flash.each do |type, message| -%>
@@ -45,6 +47,8 @@
           </div>
         <% end -%>
       </div>
+
+
       <div id="main">
         <%= yield %>
         <!--div id="footer">

@@ -1,3 +1,22 @@
+<script type="text/javascript">
+$(function() {
+  $('#dream_message').keyup(function() {
+    var content_length = $(this).val().length;
+    var remaining = 500 - content_length
+    $('#char_count').html(remaining);
+    if (remaining < 21 && remaining > 9) {
+      $('#char_count').removeClass('red');
+      $('#char_count').addClass('dark_red');
+    } else if (remaining <= 9) {
+      $('#char_count').removeClass('dark_red');
+      $('#char_count').addClass('red');
+    } else {
+      $('#char_count').removeClass('dark_red').removeClass('red');
+    }
+  })
+})
+</script>
+
 <h1></h1>
 
  <% if current_user %>
@@ -8,8 +27,27 @@
     <th></th>
   </tr>
 
-   <%= link_to 'New Dream', new_dream_path %>
+<!-- %= render 'errsform' %-->
 
+<div name = "postdream">
+
+<%- form_for Dream.new do |f| -%>
+  <div id="post_dream_form">
+    <h3 style="float: left;">What was your dream?</h3>
+    <h3 id="char_count">500</h3>
+    <div class="clear"></div>
+    <%= f.text_area :dream %>
+    <!--div id="latest_dream"-->
+      <!--strong>Latest: </strong--><!--%= h( "#{last_flit_message} #{last_flit_created}") %-->
+    <!--/div-->
+    <div id="submit_button_container">
+      <%= f.submit "update", :class => "button" %>
+    </div>
+    <div class="clear"></div>
+  </div>
+<%- end -%>	
+
+</div>
 
 <ul id="dreams_list">
   <% @dreams.each do |dream|  %>
