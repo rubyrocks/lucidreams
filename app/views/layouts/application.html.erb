@@ -34,7 +34,7 @@
               Logged in as <%= current_user.email %>.
               <%= button_to("Log out", log_out_path, :method => :get) %>
         <% else %>
-	      <%= button_to("Sign up", sign_up_path, :method => :get) %> | 
+	      <%= button_to("Sign up", sign_up_path, :method => :get) %> 
 	      <%= button_to("log in", log_in_path, :method => :get) %>
 	<% end %>
     </div>

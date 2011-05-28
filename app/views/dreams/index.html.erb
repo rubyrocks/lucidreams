@@ -1,43 +1,38 @@
 <div id="centerapp">
 
 <script type="text/javascript">
-$(function() {
-  $('#dream_message').keyup(function() {
-    var content_length = $(this).val().length;
-    var remaining = 500 - content_length
-    $('#char_count').html(remaining);
-    if (remaining < 21 && remaining > 9) {
-      $('#char_count').removeClass('red');
-      $('#char_count').addClass('dark_red');
-    } else if (remaining <= 9) {
-      $('#char_count').removeClass('dark_red');
-      $('#char_count').addClass('red');
-    } else {
-      $('#char_count').removeClass('dark_red').removeClass('red');
-    }
-  })
-})
+
+	document.observe("dom:loaded", function() {
+		wordCount('dream_dream', 500);
+ 		$('dream_dream').observe("keyup", function() { 
+						            wordCount('dream_dream', 500); });
+	})
+
+	function wordCount(element, limit) {
+		var count = $(element).getValue().length;
+		$('dream-count').update(limit - count);
+		if (count >= 450) {
+		    $('dream-count').setStyle({ color: '#FF0000'});
+		}
+	}
+
 </script>
 
 <h1></h1>
 
  <% if current_user %>
-
+    
 <!-- %= render 'errsform' %-->
 
 <div name = "postdream">
 
 <%- form_for Dream.new do |f| -%>
   <div id="post_dream_form">
-    <h3 style="float: left;">What was your dream?</h3>
-    <h3 id="char_count">500</h3>
-    <div class="clear"></div>
+    <h3 style="float: left;">What was your dream?</h3><span id="dream-count" style="float:right"></span>
+
     <div id="dreamtext">
     	<%= f.text_area :dream, :cols => 80, :rows => 15 %>
     </div>
-    <!--div id="latest_dream"-->
-      <!--strong>Latest: </strong--><!--%= h( "#{last_flit_message} #{last_flit_created}") %-->
-    <!--/div-->
     <div id="submit_button_container">
       <%= f.submit "update", :class => "button" %>
     </div>
