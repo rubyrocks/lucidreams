@@ -39,22 +39,6 @@ class DreamsController < ApplicationController
     @dream = Dream.find(params[:id])
   end
 
-  # POST /dreams
-  # POST /dreams.xml
-  #def create
-  #  @dream = Dream.new(params[:dream])
-
-  #  respond_to do |format|
-  #    if @dream.save
-  #      format.html { redirect_to(@dream, :notice => 'Dream was successfully created.') }
-  #      format.xml  { render :xml => @dream, :status => :created, :location => @dream }
-  #    else
-  #      format.html { render :action => "new" }
-  #      format.xml  { render :xml => @dream.errors, :status => :unprocessable_entity }
-  #    end
-  #  end
-  #end
-
   def create
 	@dream = Dream.new(params[:dream])
 
@@ -97,4 +81,9 @@ class DreamsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def find
+    @dreams = Dreams.find(:all, :conditions=>["dream like ?", params[:search_string]])
+  end
+
 end

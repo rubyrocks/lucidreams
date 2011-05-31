@@ -24,6 +24,13 @@
     
 <!-- %= render 'errsform' %-->
 
+<span style="text-align: left">
+  <% form_tag "/dreams/find" do %>
+    <%= text_field_tag :search_string %>
+    <%= submit_tag "Search" %>
+  <% end %>
+</span>
+
 <div name = "postdream">
 
 <%- form_for Dream.new do |f| -%>
