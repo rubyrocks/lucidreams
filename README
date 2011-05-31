@@ -1,6 +1,7 @@
 Rails 3 App to post personal nightly dreams.
 Practice Rails 3 Way
 
+CSS deploy issue with Heroku - work in progress to fix and search button route
 using web-app-theme, BCrypt
 ===========================================================================
 rails generate scaffold Dream time:datetime category:string dream:text
